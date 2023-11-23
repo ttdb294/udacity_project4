@@ -1,0 +1,21 @@
+{
+	"$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentParameters.json#",
+	"contentVersion": "1.0.0.0",
+	"parameters": {
+		"factoryName": {
+			"value": "Datafactorypro4"
+		},
+		"LinkedService_AzureDataLakeStorage_accountKey": {
+			"value": ""
+		},
+		"LinkedService_AzureSqlDatabase_connectionString": {
+			"value": ""
+		},
+		"LinkedServuce_AzureSynapse_connectionString": {
+			"value": ""
+		},
+		"LinkedService_AzureDataLakeStorage_properties_typeProperties_url": {
+			"value": "https://storagepro4.dfs.core.windows.net/"
+		}
+	}
+}
