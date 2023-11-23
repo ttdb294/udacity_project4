@@ -1,0 +1,40 @@
+{
+	"name": "the data flows for loading Agency into Synapse Analytics",
+	"properties": {
+		"type": "MappingDataFlow",
+		"typeProperties": {
+			"sources": [
+				{
+					"dataset": {
+						"referenceName": "AgencyMaster",
+						"type": "DatasetReference"
+					},
+					"name": "loadAgencyMasterintoSynapse"
+				}
+			],
+			"sinks": [
+				{
+					"dataset": {
+						"referenceName": "Dataset_NYC_Payroll_AGENCY_MD",
+						"type": "DatasetReference"
+					},
+					"name": "AgencyMasterDataSource"
+				}
+			],
+			"transformations": [],
+			"scriptLines": [
+				"source(output(",
+				"          AgencyID as string,",
+				"          AgencyName as string",
+				"     ),",
+				"     allowSchemaDrift: true,",
+				"     validateSchema: false,",
+				"     ignoreNoFilesFound: false) ~> loadAgencyMasterintoSynapse",
+				"loadAgencyMasterintoSynapse sink(allowSchemaDrift: true,",
+				"     validateSchema: false,",
+				"     skipDuplicateMapInputs: true,",
+				"     skipDuplicateMapOutputs: true) ~> AgencyMasterDataSource"
+			]
+		}
+	}
+}

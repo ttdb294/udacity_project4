@@ -1,0 +1,9 @@
+{
+	"name": "Datafactorypro4",
+	"location": "eastus",
+	"identity": {
+		"type": "SystemAssigned",
+		"principalId": "980fcdc8-33e4-47fa-b14e-414a90705b23",
+		"tenantId": "f958e84a-92b8-439f-a62d-4f45996b6d07"
+	}
+}

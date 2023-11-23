@@ -1,0 +1,40 @@
+{
+	"name": "the data flows for loading Title into Synapse Analytics",
+	"properties": {
+		"type": "MappingDataFlow",
+		"typeProperties": {
+			"sources": [
+				{
+					"dataset": {
+						"referenceName": "TitleMaster",
+						"type": "DatasetReference"
+					},
+					"name": "loadTitleMasterIntoSynapse"
+				}
+			],
+			"sinks": [
+				{
+					"dataset": {
+						"referenceName": "Dataset_NYC_Payroll_TITLE_MD",
+						"type": "DatasetReference"
+					},
+					"name": "LoadTitleMasterintoSynapseAnalytics"
+				}
+			],
+			"transformations": [],
+			"scriptLines": [
+				"source(output(",
+				"          TitleCode as string,",
+				"          TitleDescription as string",
+				"     ),",
+				"     allowSchemaDrift: true,",
+				"     validateSchema: false,",
+				"     ignoreNoFilesFound: false) ~> loadTitleMasterIntoSynapse",
+				"loadTitleMasterIntoSynapse sink(allowSchemaDrift: true,",
+				"     validateSchema: false,",
+				"     skipDuplicateMapInputs: true,",
+				"     skipDuplicateMapOutputs: true) ~> LoadTitleMasterintoSynapseAnalytics"
+			]
+		}
+	}
+}

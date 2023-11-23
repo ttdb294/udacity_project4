@@ -1,0 +1,41 @@
+{
+	"name": "NYC_Payroll_Summary",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "LinkedServuce_AzureSynapse",
+			"type": "LinkedServiceReference"
+		},
+		"folder": {
+			"name": "Dataset for Synapse"
+		},
+		"annotations": [],
+		"type": "DelimitedText",
+		"typeProperties": {
+			"location": {
+				"type": "AzureBlobStorageLocation",
+				"fileName": "NYC_Payroll_Summary.csv",
+				"folderPath": "dirpayrollfiles",
+				"container": "newfilesystemgen2"
+			},
+			"columnDelimiter": ",",
+			"escapeChar": "\\",
+			"firstRowAsHeader": true,
+			"quoteChar": "\""
+		},
+		"schema": [
+			{
+				"name": "FiscalYear",
+				"type": "String"
+			},
+			{
+				"name": "AgencyName",
+				"type": "String"
+			},
+			{
+				"name": "TotalPaid",
+				"type": "String"
+			}
+		]
+	},
+	"type": "Microsoft.DataFactory/factories/datasets"
+}
